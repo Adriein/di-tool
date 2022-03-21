@@ -9,8 +9,8 @@
 
 - Create a yml with di extension eg: `repositories.di.yml`
 - In the main file of your app initiate the container eg:
-    ```
-    const diContainer = new DiContainer();
+```
+const diContainer = new DiContainer();
     
-    const builder = new InstanceBuilder(diContainer);
-    ```
+const builder = new InstanceBuilder(diContainer);
+```
