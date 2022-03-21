@@ -1,0 +1,4 @@
+services:
+  fake_user.repository:
+    interface: IFakeUserRepository
+    class: Test/FakeUserRepository

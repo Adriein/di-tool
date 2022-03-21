@@ -1,0 +1,5 @@
+services:
+  fake_application.handler:
+    arguments:
+      - '@fake_user.repository'
+    class: Test/FakeApplicationHandler
