@@ -3,3 +3,7 @@ services:
     arguments:
       - '@fake_user.repository'
     class: Test/FakeApplicationHandler
+  fake2_application.handler:
+    arguments:
+      - '@fake_user.repository'
+    class: Test/Fake2ApplicationHandler

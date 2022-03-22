@@ -16,7 +16,6 @@ export class DirectoryTree {
       if (currentElement) {
         const descendants = fs.readdirSync(currentElement.path);
 
-
         for (const descendant of descendants) {
           const descendantPath = `${currentElement.path}/${descendant}`;
           const descendantNode = new DirectoryNode(descendantPath);
