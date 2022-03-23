@@ -64,6 +64,10 @@ await diContainer.init();
 ```
 2. Create a yml with di extension eg: `repositories.di.yml`:
 
-Here you can se some samples of yml
+Here you can se some samples of yml, first our `repositories.di.yml` were we defined a repository
 
 ![repositories-yml-example](/assets/repository-yml-example.PNG)
+
+And here you can see the `handlers.di.yml` where we make use of the repository created previously
+
+![repositories-yml-example](/assets/handlers-yml-example.PNG)
