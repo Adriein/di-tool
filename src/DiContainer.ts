@@ -1,7 +1,13 @@
 import { InstanceDictionary } from "./types";
+import { InstanceBuilder } from "./InstanceBuilder";
 
 export class DiContainer {
   private container: Map<string, InstanceDictionary> = new Map();
+  
+  public async init(): Promise<void> {
+    const builder = new InstanceBuilder(this);
+    await builder.execute();
+  }
 
   public has(classId: string): boolean {
     return this.container.has(classId);
@@ -11,7 +17,7 @@ export class DiContainer {
     const item = this.container.get(classId);
 
     if(!item) {
-      throw new Error(`${classId} not exists`);
+      throw new Error(`${classId} not exists in the container`);
     }
 
     return item;

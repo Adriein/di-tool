@@ -1,3 +1,4 @@
+//handlers.di.yml
 services:
   fake_application.handler:
     arguments:

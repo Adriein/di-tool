@@ -14,22 +14,21 @@ export class InstanceBuilder {
   }
 
   private mergeInjectionFiles(ymlList: InjectionYml[]): Map<string, Service> {
-    const acc = {} as Record<string, Service>;
-    const result = new Map<string, Service>();
+    const dependencies = new Map<string, Service>();
 
-    const sortedAccumulator = ymlList.reduce((result: Record<string, Service>, yml:InjectionYml) => {
+    const sortedInjectionFiles = ymlList.reduce((result: Record<string, Service>, yml:InjectionYml) => {
       if(yml.hasOwnProperty('arguments') && Array.isArray(yml.hasOwnProperty('arguments'))) {
-        return {...result, ...yml.services}
+        return {...result, ...yml.services};
       }
 
-      return {...yml.services, ...result}
-    }, acc);
+      return {...yml.services, ...result};
+    }, {} as Record<string, Service>);
 
-    for (const key in sortedAccumulator) {
-      result.set(`@${key}`, sortedAccumulator[key])
+    for (const key in sortedInjectionFiles) {
+      dependencies.set(`@${key}`, sortedInjectionFiles[key])
     }
 
-    return result;
+    return dependencies;
   }
 
   private readInjectionFile(path: string): InjectionYml {

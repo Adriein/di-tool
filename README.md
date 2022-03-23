@@ -48,14 +48,22 @@ infrastructure leaks inside your domain and application layers so di-tool it's a
 infrastructure leaks away from your inner layers.
 
 ## 🌱 How it works 
+Di-tool create a directory tree with `src` as the root element, then the crawler start iterating all your files 
+searching for `yml` with `.di` extension then the container merges all the files sorting the dependencies by 
+arguments in order to instantiate first those dependencies that has no arguments which de container considers the 
+bottom of your dependency tree.
 
-
-## 🔨 Setup instructions 
-
-- Create a yml with di extension eg: `repositories.di.yml`
-- In the main file of your app initiate the container eg:
+Di-tool uses the dynamic import feature to get the exported class of your file and then the instance is created with 
+the necessary dependencies and added to the container.
+## 🔨 Setup instructions
+1. In the main file of your app instantiate the container and initiate it eg:
 ```
 const diContainer = new DiContainer();
     
-const builder = new InstanceBuilder(diContainer);
+await diContainer.init();
 ```
+2. Create a yml with di extension eg: `repositories.di.yml`:
+
+Here you can se some samples of yml
+
+![repositories-yml-example](/assets/repository-yml-example.PNG)
