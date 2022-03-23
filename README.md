@@ -48,13 +48,12 @@ infrastructure leaks inside your domain and application layers so di-tool it's a
 infrastructure leaks away from your inner layers.
 
 ## 🌱 How it works 
-Di-tool create a directory tree with `src` as the root element, then the crawler start iterating all your files 
-searching for `yml` with `.di` extension then the container merges all the files sorting the dependencies by 
-arguments in order to instantiate first those dependencies that has no arguments which de container considers the 
+- Di-tool create a directory tree with `src` as the root element.
+- The crawler start iterating all your files searching for `yml` with `.di` extension.
+- The container merges all the files sorting the dependencies by arguments in order to instantiate first those dependencies that has no arguments which de container considers the 
 bottom of your dependency tree.
-
-Di-tool uses the dynamic import feature to get the exported class of your file and then the instance is created with 
-the necessary dependencies and added to the container.
+- Finally, Di-tool uses the dynamic import feature to get the exported class of your file and then the instance is 
+  created with the necessary dependencies and added to the container.
 ## 🔨 Setup instructions
 1. In the main file of your app instantiate the container and initiate it eg:
 ```
